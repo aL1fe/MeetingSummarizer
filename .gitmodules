@@ -1,3 +1,6 @@
 [submodule "MeetingSummarizer-Converter"]
 	path = MeetingSummarizer-Converter
 	url = https://github.com/aL1fe/MeetingSummarizer-Converter.git
+[submodule "MeetingSummarizer-Whisper"]
+	path = MeetingSummarizer-Whisper
+	url = https://github.com/aL1fe/MeetingSummarizer-Whisper.git
