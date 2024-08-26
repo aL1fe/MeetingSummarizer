@@ -1,0 +1,3 @@
+[submodule "MeetingSummarizer-Converter"]
+	path = MeetingSummarizer-Converter
+	url = https://github.com/aL1fe/MeetingSummarizer-Converter.git
