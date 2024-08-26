@@ -1,0 +1,25 @@
+version: '3.8'
+name: meeting_summarizer
+services:
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:management
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - 5672:5672  # Порт для AMQP
+      - 15672:15672  # Порт для веб-интерфейса
+    environment:
+      RABBITMQ_DEFAULT_USER: $MESSAGE_BROKER_LOGIN
+      RABBITMQ_DEFAULT_PASS: $MESSAGE_BROKER_PASSWORD
+      
+  converter:
+    container_name: converter
+    image: al1fe/converter
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - $CONVERTER_EXTERNAL_PORT:$CONVERTER_PORT
+    volumes:
+      - ./Data/Converter/incoming_files:/app/incoming_files
+      - $CONVERTER_FOLDER_CONVERTED_FILES:/app/converted_files
